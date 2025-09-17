@@ -3,7 +3,7 @@ Feature: Promotions
   As a user of the iOS/macOS shopping app
   I want to view and apply promotions when purchasing items
 
-  Scenario: Viewing promotions
+  Scenario: Viewing available promotions
     Given I open the app
     When I navigate to the promotions section
     Then I should see a list of current promotions
