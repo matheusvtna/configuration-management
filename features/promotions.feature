@@ -15,3 +15,10 @@ Scenario: Applying an expired promotion
     When I try to apply the promotion
     Then the item price should remain the same
     And a message should indicate that the promotion is no longer valid
+
+Scenario: Applying a promotion not valid for the item
+    Given I have an item in my cart
+    And the promotion does not apply to this item
+    When I attempt to apply the promotion
+    Then the item price should remain unchanged
+    And a message should indicate the promotion cannot be applied to this item
