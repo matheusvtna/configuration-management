@@ -22,3 +22,4 @@ Scenario: Applying a promotion not valid for the item
     When I attempt to apply the promotion
     Then the item price should remain unchanged
     And a message should indicate the promotion cannot be applied to this item
+    And a warning is shown that promotions cannot be applied for the next 24 hours
