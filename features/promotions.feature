@@ -29,3 +29,12 @@ Feature: Promotions
     When I attempt to apply the promotion
     Then the item price should remain unchanged
     And a message should indicate the promotion cannot be applied to this item
+
+  Scenario: Applying multiple promotions to a single item
+    Given I have an item in my cart
+    And multiple promotions are available for that item
+    When I apply the first promotion
+    And I attempt to apply a second promotion
+    Then the item price should reflect only the allowed combination of promotions
+    And a message should indicate if multiple promotions cannot be combined
+    And the cart total should be updated accordingly
