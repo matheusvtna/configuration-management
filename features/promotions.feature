@@ -40,12 +40,12 @@ Feature: Promotions
     And a message should indicate that multiple promotions cannot be combined
     And the cart total should be updated accordingly
 
-  Scenario: Restrict reapplying a removed promotion to another item within 1 hour
+  Scenario: Restrict reapplying a removed promotion to another item within 2 hours
     Given I have an item in my cart
     And a promotion is available for that item
     When I apply the promotion
     And I remove the promotion from the item
     And I add a different item to my cart
-    And I try to apply the same promotion to the new item within 1 hour
+    And I try to apply the same promotion to the new item within 2 hours
     Then the promotion should not be applied
-    And a message should indicate that the promotion can only be reapplied after 1 hour
+    And a message should indicate that the promotion can only be reapplied after 2 hours
