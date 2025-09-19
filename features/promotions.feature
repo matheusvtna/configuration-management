@@ -9,14 +9,21 @@ Feature: Promotions
     Then I should see a list of current promotions
     And each promotion should display its discount details
 
-Scenario: Applying an expired promotion
+  Scenario: Applying a promotion to an item
+    Given I have an item in my cart
+    And a promotion is available for that item
+    When I apply the promotion
+    Then the item price should be reduced accordingly
+    And the cart total should reflect the discount
+
+  Scenario: Applying an expired promotion
     Given I have an item in my cart
     And the promotion for that item has expired
     When I try to apply the promotion
     Then the item price should remain the same
     And a message should indicate that the promotion is no longer valid
 
-Scenario: Applying a promotion not valid for the item
+  Scenario: Applying a promotion not valid for the item
     Given I have an item in my cart
     And the promotion does not apply to this item
     When I attempt to apply the promotion
