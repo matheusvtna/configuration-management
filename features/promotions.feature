@@ -36,6 +36,6 @@ Feature: Promotions
     And multiple promotions are available for that item
     When I apply the first promotion
     And I attempt to apply a second promotion
-    Then the item price should reflect only the allowed combination of promotions
-    And a message should indicate if multiple promotions cannot be combined
+    Then the item price should reflect only the promotion with greater discount
+    And a message should indicate that multiple promotions cannot be combined
     And the cart total should be updated accordingly
